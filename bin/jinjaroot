@@ -3,9 +3,21 @@
 import click
 import jinjaroot
 
-@click.command()
+@click.group(help="Kachery peer-to-peer command-line client")
 def cli():
-    jinjaroot.cli()
+    pass
+
+@click.command(help="Generate code recursively starting from the current directory")
+@click.option('--force', is_flag=True, help='Force overwriting files that were modified more recently than the template')
+def generate(force):
+    jinjaroot.generate(force=force)
+
+@click.command(help="Verify that the code is up to date - recursively starting fro the current directory")
+def verify():
+    jinjaroot.verify()
+
+cli.add_command(generate)
+cli.add_command(verify)
 
 if __name__ == '__main__':
     cli()
