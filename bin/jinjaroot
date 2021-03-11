@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import click
+import jinjaroot
+
+@click.command()
+def cli():
+    jinjaroot.cli()
+
+if __name__ == '__main__':
+    cli()
