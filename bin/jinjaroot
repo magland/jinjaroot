@@ -3,7 +3,7 @@
 import click
 import jinjaroot
 
-@click.group(help="Kachery peer-to-peer command-line client")
+@click.group(help="jinjaroot command-line client")
 def cli():
     pass
 

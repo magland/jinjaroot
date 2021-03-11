@@ -17,7 +17,13 @@ Also add `<filename>.j2` files adjacent to any other files
 Then just run
 
 ```
-jinjaroot
+jinjaroot generate
 ```
 
-at the root directory of your repo
+at the root directory of your repo.
+
+For more information, use:
+
+```
+jinjaroot --help
+```
