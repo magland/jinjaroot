@@ -12,9 +12,9 @@ Put a `.jinjaroot` folder in the root directory of your repo with jinja2 templat
 
 Add a `jinjaroot.yaml`  with the data to be filled in
 
-Also add `<filename>.j2` files adjacent to any other files
+Also add `<filename>.j2` files adjacent to any other files named `<filename>`
 
-Then just run
+Then run
 
 ```
 jinjaroot generate

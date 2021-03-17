@@ -7,7 +7,7 @@
         {
             "label": "Code generation",
             "type": "shell",
-            "command": "bash -ic jinjaroot",
+            "command": "bash -ic 'jinjaroot generate'",
             "presentation": {
                 "clear": true
             },
