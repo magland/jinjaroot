@@ -47,7 +47,7 @@ def _check_and_write_file(*, dst_path: str, gen_code: str, verify_only: bool, dr
             print(f'Writing: {dst_path}')
             with open(dst_path, 'w') as f:
                 f.write(gen_code)
-            if (dst_stat is None) or (template_stat.st_mode != dst_stat.st_mode):
+            if (dst_stat is None) or (template_stat and (template_stat.st_mode != dst_stat.st_mode)):
                 os.chmod(dst_path, template_stat.st_mode)
 
 def process_dir(*, dirpath: str, template_data: dict, verify_only: bool, dry: bool):
@@ -72,15 +72,14 @@ def process_dir(*, dirpath: str, template_data: dict, verify_only: bool, dry: bo
     for fname in fnames:
         file_path = f'{dirpath}/{fname}'
         if os.path.isfile(file_path):
-            if ends_with(file_path, ['.ts', '.tsx', '.js', '.jsx', '.py', '.cfg', '.md', '.sh', '.yml', '.yaml']):
-                template_path = file_path + '.j2'
-                if os.path.exists(template_path):
-                    with open(template_path, 'r') as f:
-                        template_code = f.read()
-                    t = Template(template_code, keep_trailing_newline=True)
-                    gen_code = t.render(**template_data2)
-                    gen_code = add_gen_header(fname, gen_code, header_msg2)
-                    _check_and_write_file(dst_path=file_path, gen_code=gen_code, verify_only=verify_only, dry=dry, template_path=template_path)
+            template_path = file_path + '.j2'
+            if os.path.exists(template_path):
+                with open(template_path, 'r') as f:
+                    template_code = f.read()
+                t = Template(template_code, keep_trailing_newline=True)
+                gen_code = t.render(**template_data2)
+                gen_code = add_gen_header(fname, gen_code, header_msg2)
+                _check_and_write_file(dst_path=file_path, gen_code=gen_code, verify_only=verify_only, dry=dry, template_path=template_path)
             if ends_with(file_path, ['.json']):
                 substitute_template_path = file_path + '.substitute.j2'
                 if os.path.exists(substitute_template_path):

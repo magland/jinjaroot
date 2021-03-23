@@ -1,5 +1,5 @@
 packageName: jinjaroot
-packageVersion: 0.0.4.dev1
+packageVersion: 0.0.4
 packageAuthor: Jeremy Magland
 packageAuthorEmail: jmagland@flatironinstitute.org
 packageDescription: Utility for using jinja2 templates in code repos

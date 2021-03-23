@@ -12,12 +12,17 @@ def cli():
 def generate(dry):
     jinjaroot.generate(dry=dry)
 
-@click.command(help="Verify that the code is up to date - recursively starting fro the current directory")
+@click.command(help="Verify that the code is up to date - recursively starting from the current directory")
 def verify():
     jinjaroot.verify()
 
+@click.command(help="Check for files that may be out of sync - recursively starting from the current directory")
+def synctool():
+    jinjaroot.synctool()
+
 cli.add_command(generate)
 cli.add_command(verify)
+cli.add_command(synctool)
 
 if __name__ == '__main__':
     cli()
