@@ -47,7 +47,7 @@ class SyncTool:
             if not _excluded(fname):
                 file_path = f'{dirpath}/{fname}'
                 if os.path.isfile(file_path):
-                    if fname.endswith('.j2'):
+                    if fname.endswith('.j2') or (os.path.isfile(file_path + '.sync')):
                         if fname not in self._file_groups:
                             self._file_groups[fname] = FileGroup(fname)
                         self._file_groups[fname].add_file(file_path)

@@ -1,7 +1,7 @@
-packageName: jinjaroot
-packageVersion: 0.0.4
-packageAuthor: Jeremy Magland
-packageAuthorEmail: jmagland@flatironinstitute.org
-packageDescription: Utility for using jinja2 templates in code repos
-packageUrl: https://github.com/magland/jinjaroot
-packageBugTrackerUrl: https://github.com/magland/jinjaroot/issues
+projectName: jinjaroot
+projectVersion: 0.0.5
+projectAuthor: Jeremy Magland
+projectAuthorEmail: jmagland@flatironinstitute.org
+projectDescription: Utility for using jinja2 templates in code repos
+projectUrl: https://github.com/magland/jinjaroot
+projectBugTrackerUrl: https://github.com/magland/jinjaroot/issues
